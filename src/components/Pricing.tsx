@@ -39,7 +39,6 @@ const plans = [
       { text: 'Historial extendido (100 transcripciones)', included: true },
       { text: 'Filtro inteligente de muletillas', included: true },
       { text: 'Vocabulario personalizado', included: true },
-      { text: 'Soporte prioritario', included: true },
       { text: 'Todas las actualizaciones futuras', included: true },
       { text: 'Pago único — sin suscripción', included: true },
     ],
@@ -49,6 +48,20 @@ const plans = [
 
 export function Pricing() {
   const sectionRef = useRef<HTMLElement>(null);
+
+  const handleCheckout = async () => {
+    try {
+      const res = await fetch('/api/checkout', { method: 'POST' });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('Error al iniciar el pago. Inténtalo de nuevo.');
+      }
+    } catch {
+      alert('Error de conexión. Inténtalo de nuevo.');
+    }
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -189,9 +202,7 @@ export function Pricing() {
                 className={`w-full py-3.5 rounded-full font-medium text-sm transition-all duration-300 ${plan.ctaStyle}`}
                 onClick={() => {
                   if (plan.highlighted) {
-                    // TODO: Stripe checkout — reemplazar con el link real
-                    // window.location.href = '/api/checkout';
-                    alert('Stripe checkout — próximamente');
+                    void handleCheckout();
                   } else {
                     // TODO: Link de descarga del .dmg
                     alert('Descarga del .dmg — próximamente');
