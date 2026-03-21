@@ -199,7 +199,7 @@ export function Pricing() {
 
               {/* CTA button */}
               <button
-                className={`w-full py-3.5 rounded-full font-medium text-sm transition-all duration-300 ${plan.ctaStyle}`}
+                className={`relative z-10 w-full py-3.5 rounded-full font-medium text-sm transition-all duration-300 ${plan.ctaStyle}`}
                 onClick={() => {
                   if (plan.highlighted) {
                     void handleCheckout();
