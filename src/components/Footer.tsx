@@ -30,7 +30,7 @@ export function Footer() {
             <a href="#" className="hover:text-neutral-300 transition-colors">
               Términos
             </a>
-            <a href="mailto:hola@diktame.app" className="hover:text-neutral-300 transition-colors">
+            <a href="mailto:mrngl1991@gmail.com" className="hover:text-neutral-300 transition-colors">
               Contacto
             </a>
           </div>

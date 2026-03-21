@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     question: '¿En qué idiomas funciona?',
-    answer: 'Diktame soporta más de 50 idiomas incluyendo español, inglés, francés, alemán, italiano, portugués, árabe, chino, japonés, coreano, ruso, polaco, holandés y muchos más. Diktame Pro incluye detección automática de idioma y traducción en vivo.',
+    answer: 'Diktame soporta español, inglés, francés, alemán, italiano, portugués, árabe, chino, japonés y coreano. Diktame Pro incluye detección automática de idioma y traducción en vivo.',
   },
   {
     question: '¿Qué diferencia hay entre los modelos base, small y large?',
@@ -45,11 +45,11 @@ const faqs = [
   },
   {
     question: '¿Puedo usar Diktame en varios Macs?',
-    answer: 'Sí. La licencia de Diktame Pro es personal y puedes usarla en todos tus Macs con Apple Silicon.',
+    answer: 'La licencia de Diktame Pro es para un Mac activo a la vez. Puedes transferirla a otro Mac desactivándola en el anterior, pero no puede estar activa en varios equipos simultáneamente.',
   },
   {
     question: '¿Hay política de reembolso?',
-    answer: 'Sí. Si Diktame Pro no te convence, tienes 30 días para solicitar un reembolso completo sin preguntas. Queremos que estés satisfecho.',
+    answer: 'No. Al ser una licencia de pago único y para siempre, todas las ventas son definitivas. Por eso ofrecemos Diktame Free sin límite de tiempo para que puedas probar la app antes de comprar Pro.',
   },
 ];
 
@@ -141,7 +141,7 @@ export function FAQ() {
           <p className="text-sm text-neutral-500">
             ¿Tienes otra pregunta?{' '}
             <a
-              href="mailto:hola@diktame.app"
+              href="mailto:mrngl1991@gmail.com"
               className="text-amber-warm hover:text-amber-light transition-colors"
             >
               Escríbenos

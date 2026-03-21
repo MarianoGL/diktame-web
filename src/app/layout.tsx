@@ -25,6 +25,13 @@ export const metadata: Metadata = {
     'mejor app dictado Mac 2025',
     'dictado profesional macOS',
   ],
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: 'Diktame — Dictado por voz para macOS',
     description: 'Transcribe tu voz a texto localmente. Sin internet. Sin APIs. Sin datos enviados. Desde 0€.',
@@ -32,11 +39,20 @@ export const metadata: Metadata = {
     siteName: 'Diktame',
     locale: 'es_ES',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Diktame — Tu voz, tu texto. Dictado por voz 100% local para macOS.',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Diktame — Dictado por voz para macOS',
     description: 'Transcribe tu voz a texto localmente. Sin internet. Sin APIs. Sin datos enviados.',
+    images: ['/og-image.png'],
   },
   alternates: {
     canonical: 'https://diktame.app',
@@ -110,7 +126,7 @@ const jsonLd = {
           name: '¿En qué idiomas funciona?',
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Diktame soporta más de 50 idiomas incluyendo español, inglés, francés, alemán, italiano, portugués, árabe, chino, japonés y muchos más. Diktame Pro incluye detección automática de idioma.',
+            text: 'Diktame soporta español, inglés, francés, alemán, italiano, portugués, árabe, chino, japonés y coreano. Diktame Pro incluye detección automática de idioma.',
           },
         },
       ],
