@@ -99,8 +99,8 @@ export function Speed() {
               Rendimiento
             </span>
             <h2 className="font-display text-4xl sm:text-5xl text-white leading-tight mb-6">
-              Más rápido que{' '}
-              <span className="italic text-amber-warm">escribirlo a mano.</span>
+              Cero latencia.{' '}
+              <span className="italic text-amber-warm">Cero nube.</span>
             </h2>
             <p className="text-neutral-400 text-lg leading-relaxed mb-8">
               Diktame ejecuta Whisper AI directamente en el Neural Engine de tu Mac.
