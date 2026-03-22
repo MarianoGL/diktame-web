@@ -3,14 +3,34 @@ import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
+const SUPPORTED_LOCALES = [
+  'es',
+  'en',
+  'fr',
+  'de',
+  'it',
+  'pt',
+  'ru',
+] as const satisfies ReadonlyArray<Stripe.Checkout.SessionCreateParams.Locale>;
+
+function resolveCheckoutLocale(
+  raw: string | null
+): Stripe.Checkout.SessionCreateParams.Locale {
+  if (raw && (SUPPORTED_LOCALES as readonly string[]).includes(raw)) {
+    return raw as Stripe.Checkout.SessionCreateParams.Locale;
+  }
+  return 'es';
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const locale = req.nextUrl.searchParams.get('locale') || 'es';
+    const locale = resolveCheckoutLocale(req.nextUrl.searchParams.get('locale'));
     const successPath = locale === 'es' ? '/success' : `/${locale}/success`;
     const cancelPath = locale === 'es' ? '/#precios' : `/${locale}#precios`;
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
+      locale,
       payment_method_types: ['card'],
       line_items: [
         {
