@@ -5,6 +5,10 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
 export async function POST(req: NextRequest) {
   try {
+    const locale = req.nextUrl.searchParams.get('locale') || 'es';
+    const successPath = locale === 'es' ? '/success' : `/${locale}/success`;
+    const cancelPath = locale === 'es' ? '/#precios' : `/${locale}#precios`;
+
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       payment_method_types: ['card'],
@@ -14,8 +18,8 @@ export async function POST(req: NextRequest) {
           quantity: 1,
         },
       ],
-      success_url: `${req.nextUrl.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${req.nextUrl.origin}/#precios`,
+      success_url: `${req.nextUrl.origin}${successPath}?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${req.nextUrl.origin}${cancelPath}`,
       customer_creation: 'always',
       metadata: {
         product: 'diktame-pro',

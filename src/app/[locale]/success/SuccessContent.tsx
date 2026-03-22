@@ -1,10 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
+import { localizedPath, type Locale } from '@/lib/i18n';
+import type { Translations } from '@/lib/i18n';
 
-function SuccessContent() {
+type SuccessT = Translations['success'];
+
+function SuccessInner({ t, locale }: { t: SuccessT; locale: Locale }) {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get('session_id');
   const [licenseKey, setLicenseKey] = useState<string | null>(null);
@@ -13,14 +16,15 @@ function SuccessContent() {
   const [error, setError] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
+  const homeHref = localizedPath('/', locale);
+
   useEffect(() => {
     if (!sessionId) {
-      setError('No se encontró la sesión de pago');
+      setError(t.errorNoSession);
       setLoading(false);
       return;
     }
 
-    // Poll for the license key (webhook might take a moment)
     const fetchLicense = async (attempt = 0) => {
       try {
         const res = await fetch(`/api/license-by-session?session_id=${sessionId}`);
@@ -31,24 +35,23 @@ function SuccessContent() {
           setEmail(data.email);
           setLoading(false);
         } else if (attempt < 10) {
-          // Retry after 2 seconds (webhook might not have fired yet)
           setTimeout(() => fetchLicense(attempt + 1), 2000);
         } else {
-          setError('Tu pago se ha procesado correctamente. Recibirás tu clave de licencia por email en breve.');
+          setError(t.errorEmailFallback);
           setLoading(false);
         }
       } catch {
         if (attempt < 10) {
           setTimeout(() => fetchLicense(attempt + 1), 2000);
         } else {
-          setError('Tu pago se ha procesado correctamente. Recibirás tu clave de licencia por email en breve.');
+          setError(t.errorEmailFallback);
           setLoading(false);
         }
       }
     };
 
     fetchLicense();
-  }, [sessionId]);
+  }, [sessionId, t]);
 
   const copyKey = () => {
     if (licenseKey) {
@@ -64,12 +67,8 @@ function SuccessContent() {
         {loading ? (
           <div>
             <div className="w-12 h-12 rounded-full border-2 border-amber-warm/30 border-t-amber-warm animate-spin mx-auto mb-6" />
-            <h1 className="font-display text-3xl text-white mb-3">
-              Preparando tu licencia...
-            </h1>
-            <p className="text-neutral-400 text-sm">
-              Esto puede tardar unos segundos.
-            </p>
+            <h1 className="font-display text-3xl text-white mb-3">{t.loadingTitle}</h1>
+            <p className="text-neutral-400 text-sm">{t.loadingSub}</p>
           </div>
         ) : error ? (
           <div>
@@ -78,15 +77,13 @@ function SuccessContent() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
               </svg>
             </div>
-            <h1 className="font-display text-3xl text-white mb-3">
-              ¡Pago completado!
-            </h1>
+            <h1 className="font-display text-3xl text-white mb-3">{t.paymentDoneTitle}</h1>
             <p className="text-neutral-400 text-sm mb-6">{error}</p>
             <a
-              href="/"
+              href={homeHref}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium bg-amber-warm/10 text-amber-warm border border-amber-warm/20 hover:bg-amber-warm/20 transition-all duration-300"
             >
-              Volver a Diktame
+              {t.backToDiktame}
             </a>
           </div>
         ) : (
@@ -97,26 +94,17 @@ function SuccessContent() {
               </svg>
             </div>
 
-            <h1 className="font-display text-3xl text-white mb-3">
-              ¡Bienvenido a Diktame Pro!
-            </h1>
-            <p className="text-neutral-400 text-sm mb-8">
-              Tu licencia ha sido generada. Cópiala e introdúcela en la app.
-            </p>
+            <h1 className="font-display text-3xl text-white mb-3">{t.welcomeTitle}</h1>
+            <p className="text-neutral-400 text-sm mb-8">{t.welcomeSub}</p>
 
-            {/* License key display */}
             <div className="rounded-2xl border border-amber-warm/20 bg-surface-800/60 p-6 mb-6">
-              <p className="text-xs text-neutral-500 mb-3 uppercase tracking-wider font-mono">
-                Tu clave de licencia
-              </p>
+              <p className="text-xs text-neutral-500 mb-3 uppercase tracking-wider font-mono">{t.licenseLabel}</p>
               <div className="flex items-center justify-center gap-3">
-                <code className="text-xl font-mono text-amber-warm tracking-wider">
-                  {licenseKey}
-                </code>
+                <code className="text-xl font-mono text-amber-warm tracking-wider">{licenseKey}</code>
                 <button
                   onClick={copyKey}
                   className="p-2 rounded-lg bg-amber-warm/10 hover:bg-amber-warm/20 transition-colors"
-                  title="Copiar clave"
+                  title={t.copyTitle}
                 >
                   {copied ? (
                     <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
@@ -131,46 +119,43 @@ function SuccessContent() {
               </div>
               {email && (
                 <p className="text-xs text-neutral-500 mt-3">
-                  Asociada a {email}
+                  {t.associatedTo} {email}
                 </p>
               )}
             </div>
 
-            {/* Instructions */}
             <div className="text-left rounded-xl border border-white/5 bg-surface-800/20 p-5 mb-6">
-              <p className="text-sm font-medium text-white mb-3">Cómo activar:</p>
+              <p className="text-sm font-medium text-white mb-3">{t.howToActivate}</p>
               <ol className="space-y-2 text-sm text-neutral-400">
                 <li className="flex gap-2">
                   <span className="text-amber-warm font-mono text-xs mt-0.5">1.</span>
-                  Abre Diktame en tu Mac
+                  {t.step1}
                 </li>
                 <li className="flex gap-2">
                   <span className="text-amber-warm font-mono text-xs mt-0.5">2.</span>
-                  Haz clic en el icono de la barra de menú
+                  {t.step2}
                 </li>
                 <li className="flex gap-2">
                   <span className="text-amber-warm font-mono text-xs mt-0.5">3.</span>
-                  Ve a &quot;Activar Pro&quot; y pega tu clave
+                  {t.step3}
                 </li>
                 <li className="flex gap-2">
                   <span className="text-amber-warm font-mono text-xs mt-0.5">4.</span>
-                  ¡Listo! Todas las funciones Pro están desbloqueadas
+                  {t.step4}
                 </li>
               </ol>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="/"
+                href={homeHref}
                 className="px-6 py-3 rounded-full text-sm font-medium text-neutral-300 border border-white/10 hover:border-white/25 transition-all duration-300"
               >
-                Volver a Diktame
+                {t.backToDiktame}
               </a>
             </div>
 
-            <p className="text-xs text-neutral-600 mt-6">
-              Guarda esta clave en un sitio seguro. La necesitarás si reinstales la app.
-            </p>
+            <p className="text-xs text-neutral-600 mt-6">{t.saveKeyHint}</p>
           </div>
         )}
       </div>
@@ -178,14 +163,16 @@ function SuccessContent() {
   );
 }
 
-export default function SuccessPage() {
+export default function SuccessContent({ t, locale }: { t: SuccessT; locale: Locale }) {
   return (
-    <Suspense fallback={
-      <main className="min-h-screen flex items-center justify-center">
-        <div className="w-12 h-12 rounded-full border-2 border-amber-warm/30 border-t-amber-warm animate-spin" />
-      </main>
-    }>
-      <SuccessContent />
+    <Suspense
+      fallback={
+        <main className="min-h-screen flex items-center justify-center">
+          <div className="w-12 h-12 rounded-full border-2 border-amber-warm/30 border-t-amber-warm animate-spin" />
+        </main>
+      }
+    >
+      <SuccessInner t={t} locale={locale} />
     </Suspense>
   );
 }
