@@ -47,7 +47,7 @@ export default async function Home({
         }}
       />
       <FAQ t={t.faq} />
-      <Footer t={t.footer} />
+      <Footer t={t.footer} locale={locale} />
     </main>
   );
 }

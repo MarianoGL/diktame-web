@@ -1,10 +1,11 @@
-import { type Translations } from '@/lib/i18n';
+import { localizedPath, type Locale, type Translations } from '@/lib/i18n';
 
 interface FooterProps {
   t: Translations['footer'];
+  locale: Locale;
 }
 
-export default function Footer({ t }: FooterProps) {
+export default function Footer({ t, locale }: FooterProps) {
   const year = new Date().getFullYear();
 
   return (
@@ -31,6 +32,9 @@ export default function Footer({ t }: FooterProps) {
             </a>
             <a href="mailto:mrngl1991@gmail.com" className="hover:text-neutral-300 transition-colors">
               {t.contact}
+            </a>
+            <a href={localizedPath('/recover', locale)} className="hover:text-neutral-300 transition-colors">
+              {t.recoverLicense}
             </a>
           </div>
 

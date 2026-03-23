@@ -240,6 +240,7 @@ const es = {
     privacy: 'Privacidad',
     terms: 'Términos',
     contact: 'Contacto',
+    recoverLicense: 'Recuperar licencia',
     madeIn: 'Hecho en Madrid.',
     tagline: 'Tu voz nunca sale de tu Mac.',
   },
@@ -267,6 +268,22 @@ const es = {
       'Guarda esta clave en un sitio seguro. La necesitarás si reinstales la app.',
     alertCheckoutError: 'Error al iniciar el pago. Inténtalo de nuevo.',
     alertConnectionError: 'Error de conexión. Inténtalo de nuevo.',
+  },
+  recover: {
+    metaTitle: 'Recuperar licencia — Diktame',
+    metaDescription:
+      'Introduce el email de tu compra para recibir de nuevo tu clave de Diktame Pro por correo.',
+    title: 'Recuperar tu clave',
+    description:
+      'Introduce el mismo correo que usaste al comprar Diktame Pro. Si hay una licencia asociada, te enviaremos la clave.',
+    placeholder: 'tu@email.com',
+    submit: 'Enviar',
+    submitting: 'Enviando…',
+    successMessage:
+      'Si existe una licencia asociada a este correo, te hemos enviado las instrucciones. Revisa tu bandeja de entrada (y spam).',
+    invalidEmail: 'Introduce un correo electrónico válido.',
+    networkError: 'Error de conexión. Inténtalo de nuevo.',
+    backToDiktame: 'Volver a Diktame',
   },
 };
 
@@ -497,6 +514,7 @@ const enTranslations: typeof es = {
     privacy: 'Privacy',
     terms: 'Terms',
     contact: 'Contact',
+    recoverLicense: 'Recover license',
     madeIn: 'Made in Madrid.',
     tagline: 'Your voice never leaves your Mac.',
   },
@@ -525,6 +543,22 @@ const enTranslations: typeof es = {
     alertCheckoutError: 'Could not start checkout. Please try again.',
     alertConnectionError: 'Connection error. Please try again.',
   },
+  recover: {
+    metaTitle: 'Recover license — Diktame',
+    metaDescription:
+      'Enter the email you used to buy Diktame Pro to receive your license key again.',
+    title: 'Recover your license key',
+    description:
+      'Enter the same email you used when purchasing Diktame Pro. If a license is registered, we will email you the key.',
+    placeholder: 'you@email.com',
+    submit: 'Send',
+    submitting: 'Sending…',
+    successMessage:
+      'If a license is registered to this address, we have sent instructions. Check your inbox (and spam).',
+    invalidEmail: 'Please enter a valid email address.',
+    networkError: 'Connection error. Please try again.',
+    backToDiktame: 'Back to Diktame',
+  },
 };
 
 // ============================================
@@ -546,7 +580,7 @@ const frTranslations: typeof es = {
   useCases: { label: 'Cas d\'utilisation', title1: 'Pour ceux qui vivent', title2: 'en écrivant.', subtitle: 'Si votre travail implique d\'écrire, Diktame vous fait gagner des heures chaque semaine.', professionals: 'Professionnels', professionalsDesc: 'Dictez emails, rapports et présentations 3x plus vite qu\'en tapant.', professionalsKw: 'Emails · Rapports · Documents', developers: 'Développeurs', developersDesc: 'Dictez commentaires de code, documentation technique, messages de commit.', developersKw: 'Documentation · Commits · PRs', writers: 'Écrivains et journalistes', writersDesc: 'Capturez des idées à la volée, transcrivez des interviews, dictez des brouillons.', writersKw: 'Brouillons · Interviews · Idées', students: 'Étudiants', studentsDesc: 'Prenez des notes en dictant, transcrivez des cours, rédigez des travaux en parlant.', studentsKw: 'Notes · Travaux · Cours', multilingual: 'Équipes multilingues', multilingualDesc: 'Parlez dans votre langue et collez le texte traduit automatiquement.', multilingualKw: 'Traduction · Équipes · International', health: 'Professionnels de santé', healthDesc: 'Dictez notes cliniques, rapports et ordonnances avec vocabulaire médical personnalisé. 100% hors ligne.', healthKw: 'Notes cliniques · Rapports · RGPD' },
   pricing: { label: 'Tarifs', title1: 'Un prix.', title2: 'Pour toujours.', subtitle: 'Sans abonnements, sans pièges. Payez une fois, utilisez pour toujours.', free: 'Free', freeDesc: 'Pour essayer Diktame sans engagement.', freeCta: 'Télécharger gratuitement', pro: 'Pro', proDesc: 'Sans limites. Sans abonnement. Pour toujours.', proCta: 'Acheter Diktame Pro', popular: 'Le plus populaire', perForever: 'pour toujours', oneTime: 'paiement unique', guarantee: 'Paiement sécurisé avec Stripe · Essayez gratuitement avant d\'acheter', feat3min: '3 minutes de dictée par jour', featBaseModel: 'Modèle Whisper base', feat1Lang: '1 langue sélectionnée', featAutoPaste: 'Collage automatique', featHistory5: 'Historique de 5 transcriptions', featUnlimited: 'Dictée illimitée', featAdvModels: 'Modèles avancés (small, medium, large)', featMultiLang: 'Multi-langue avec détection automatique', featHistory100: 'Historique étendu (100 transcriptions)', featFiller: 'Filtre intelligent de mots parasites', featVocab: 'Vocabulaire personnalisé', featTranslation: 'Traduction en direct', featUpdates: 'Toutes les mises à jour futures', featOneTime: 'Paiement unique — sans abonnement', featUnlimitedNo: 'Dictée illimitée', featAdvModelsNo: 'Modèles avancés', featAutoLangNo: 'Détection automatique de langue', featFillerNo: 'Filtre de mots parasites', featVocabNo: 'Vocabulaire personnalisé' },
   faq: { label: 'Questions fréquentes', title1: 'Tout ce que vous devez', title2: 'savoir.', contact: 'Vous avez une autre question ?', contactLink: 'Contactez-nous', q1: 'Diktame fonctionne-t-il sans internet ?', a1: 'Oui, à 100%. Diktame exécute le modèle Whisper AI directement sur le Neural Engine de votre Mac. Une fois le modèle téléchargé (~150 Mo), vous n\'avez besoin d\'aucune connexion internet.', q2: 'Est-il compatible avec mon Mac ?', a2: 'Diktame fonctionne sur tout Mac avec Apple Silicon (M1, M2, M3, M4) et macOS 14 Sonoma ou supérieur.', q3: 'Mes données vocales sont-elles envoyées à un serveur ?', a3: 'Non. Zéro. Rien. L\'audio est traité localement sur votre Mac et supprimé immédiatement après la transcription.', q4: 'Dois-je créer un compte ?', a4: 'Non. Téléchargez l\'app, ouvrez-la et elle fonctionne. Sans inscription, sans email, sans vérification.', q5: 'Combien coûte Diktame ?', a5: 'Diktame Free est gratuit pour toujours avec 3 minutes de dictée par jour. Diktame Pro coûte 14,99€ en un seul paiement — sans abonnement, pour toujours.', q6: 'Quelles langues sont prises en charge ?', a6: 'Diktame prend en charge le français, l\'anglais, l\'espagnol, l\'allemand, l\'italien, le portugais, l\'arabe, le chinois, le japonais et le coréen.', q7: 'Quelle différence entre les modèles base, small et large ?', a7: 'Le modèle base (~150 Mo) offre une bonne précision et est très rapide. Le small (~500 Mo) améliore la précision. Le large-v3 turbo (~3 Go) offre la précision maximale.', q8: 'Fonctionne-t-il dans toutes les apps ?', a8: 'Oui. Diktame colle automatiquement le texte là où se trouve votre curseur dans n\'importe quelle application.', q9: 'Comment fonctionne la traduction en direct ?', a9: 'Dans Diktame Pro, sélectionnez une langue de sortie différente de celle que vous parlez. Par exemple, parlez en français et le texte est collé en anglais.', q10: 'Qu\'est-ce que le vocabulaire personnalisé ?', a10: 'Dans Diktame Pro, vous pouvez ajouter une liste de mots que Whisper doit reconnaître correctement : noms d\'entreprise, marques, termes techniques.', q11: 'Puis-je utiliser Diktame sur plusieurs Macs ?', a11: 'La licence Diktame Pro est pour un Mac actif à la fois. Vous pouvez la transférer en la désactivant sur le Mac précédent.', q12: 'Y a-t-il une politique de remboursement ?', a12: 'Non. Étant une licence à vie, toutes les ventes sont définitives. C\'est pourquoi nous offrons Diktame Free sans limite de temps.' },
-  footer: { privacy: 'Confidentialité', terms: 'Conditions', contact: 'Contact', madeIn: 'Fait à Madrid.', tagline: 'Votre voix ne quitte jamais votre Mac.' },
+  footer: { privacy: 'Confidentialité', terms: 'Conditions', contact: 'Contact', recoverLicense: 'Récupérer la licence', madeIn: 'Fait à Madrid.', tagline: 'Votre voix ne quitte jamais votre Mac.' },
   success: {
     loadingTitle: 'Préparation de votre licence...',
     loadingSub: 'Cela peut prendre quelques secondes.',
@@ -572,6 +606,22 @@ const frTranslations: typeof es = {
     alertCheckoutError: 'Impossible de démarrer le paiement. Réessayez.',
     alertConnectionError: 'Erreur de connexion. Réessayez.',
   },
+  recover: {
+    metaTitle: 'Récupérer la licence — Diktame',
+    metaDescription:
+      'Saisissez l’email utilisé pour l’achat afin de recevoir à nouveau votre clé Diktame Pro.',
+    title: 'Récupérer votre clé',
+    description:
+      'Indiquez l’adresse utilisée lors de l’achat de Diktame Pro. Si une licence est associée, nous vous enverrons la clé.',
+    placeholder: 'vous@email.com',
+    submit: 'Envoyer',
+    submitting: 'Envoi…',
+    successMessage:
+      'Si une licence est associée à cette adresse, nous avons envoyé les instructions. Vérifiez votre boîte de réception (et les spams).',
+    invalidEmail: 'Saisissez une adresse email valide.',
+    networkError: 'Erreur de connexion. Réessayez.',
+    backToDiktame: 'Retour à Diktame',
+  },
 };
 
 // ============================================
@@ -590,7 +640,7 @@ const deTranslations: typeof es = {
   useCases: { label: 'Anwendungsfälle', title1: 'Für alle, die', title2: 'schreiben.', subtitle: 'Wenn deine Arbeit Schreiben beinhaltet, spart dir Diktame jede Woche Stunden.', professionals: 'Profis', professionalsDesc: 'Diktiere E-Mails, Berichte und Präsentationen 3x schneller als tippen.', professionalsKw: 'E-Mails · Berichte · Dokumente', developers: 'Entwickler', developersDesc: 'Diktiere Code-Kommentare, technische Dokumentation, Commit-Nachrichten.', developersKw: 'Dokumentation · Commits · PRs', writers: 'Autoren & Journalisten', writersDesc: 'Fange Ideen im Flug ein, transkribiere Interviews, diktiere Entwürfe.', writersKw: 'Entwürfe · Interviews · Ideen', students: 'Studenten', studentsDesc: 'Mache Notizen per Diktat, transkribiere Vorlesungen, schreibe Arbeiten per Sprache.', studentsKw: 'Notizen · Arbeiten · Vorlesungen', multilingual: 'Mehrsprachige Teams', multilingualDesc: 'Sprich in deiner Sprache und füge den automatisch übersetzten Text ein.', multilingualKw: 'Übersetzung · Teams · International', health: 'Medizinische Fachkräfte', healthDesc: 'Diktiere klinische Notizen, Berichte und Rezepte mit medizinischem Fachvokabular. 100% offline.', healthKw: 'Klinische Notizen · Berichte · DSGVO' },
   pricing: { label: 'Preise', title1: 'Ein Preis.', title2: 'Für immer.', subtitle: 'Keine Abos, keine Tricks. Einmal zahlen, für immer nutzen.', free: 'Free', freeDesc: 'Zum unverbindlichen Testen.', freeCta: 'Kostenlos herunterladen', pro: 'Pro', proDesc: 'Keine Limits. Kein Abo. Für immer.', proCta: 'Diktame Pro kaufen', popular: 'Am beliebtesten', perForever: 'für immer', oneTime: 'einmalig', guarantee: 'Sichere Zahlung mit Stripe · Kostenlos testen vor dem Kauf', feat3min: '3 Minuten Diktat pro Tag', featBaseModel: 'Whisper Base-Modell', feat1Lang: '1 ausgewählte Sprache', featAutoPaste: 'Auto-Einfügen', featHistory5: 'Verlauf mit 5 Transkriptionen', featUnlimited: 'Unbegrenztes Diktat', featAdvModels: 'Erweiterte Modelle (small, medium, large)', featMultiLang: 'Mehrsprachig mit Auto-Erkennung', featHistory100: 'Erweiterter Verlauf (100 Transkriptionen)', featFiller: 'Intelligenter Füllwort-Filter', featVocab: 'Benutzerdefiniertes Vokabular', featTranslation: 'Live-Übersetzung', featUpdates: 'Alle zukünftigen Updates', featOneTime: 'Einmalzahlung — kein Abo', featUnlimitedNo: 'Unbegrenztes Diktat', featAdvModelsNo: 'Erweiterte Modelle', featAutoLangNo: 'Automatische Spracherkennung', featFillerNo: 'Füllwort-Filter', featVocabNo: 'Benutzerdefiniertes Vokabular' },
   faq: { label: 'Häufige Fragen', title1: 'Alles was du', title2: 'wissen musst.', contact: 'Noch eine Frage?', contactLink: 'Kontaktiere uns', q1: 'Funktioniert Diktame ohne Internet?', a1: 'Ja, zu 100%. Diktame führt Whisper AI direkt auf der Neural Engine deines Macs aus. Einmal das Modell heruntergeladen (~150 MB), brauchst du keine Internetverbindung.', q2: 'Ist es mit meinem Mac kompatibel?', a2: 'Diktame funktioniert auf jedem Mac mit Apple Silicon (M1, M2, M3, M4) und macOS 14 Sonoma oder neuer.', q3: 'Werden meine Sprachdaten an einen Server gesendet?', a3: 'Nein. Null. Nichts. Audio wird lokal verarbeitet und sofort nach der Transkription gelöscht.', q4: 'Muss ich ein Konto erstellen?', a4: 'Nein. Lade die App herunter, öffne sie und sie funktioniert. Ohne Registrierung.', q5: 'Was kostet Diktame?', a5: 'Diktame Free ist für immer kostenlos mit 3 Minuten pro Tag. Diktame Pro kostet 14,99€ als Einmalzahlung — für immer.', q6: 'Welche Sprachen werden unterstützt?', a6: 'Deutsch, Englisch, Französisch, Spanisch, Italienisch, Portugiesisch, Arabisch, Chinesisch, Japanisch und Koreanisch.', q7: 'Was ist der Unterschied zwischen Base, Small und Large?', a7: 'Das Base-Modell (~150 MB) ist schnell und genau. Small (~500 MB) verbessert die Genauigkeit. Large-v3 Turbo (~3 GB) bietet maximale Genauigkeit.', q8: 'Funktioniert es in jeder App?', a8: 'Ja. Diktame fügt Text automatisch dort ein, wo dein Cursor steht.', q9: 'Wie funktioniert die Live-Übersetzung?', a9: 'In Diktame Pro wählst du eine andere Ausgabesprache. Sprich z.B. Deutsch und der Text wird auf Englisch eingefügt.', q10: 'Was ist benutzerdefiniertes Vokabular?', a10: 'Du kannst Wörter hinzufügen, die Whisper korrekt erkennen soll: Firmennamen, Marken, Fachbegriffe.', q11: 'Kann ich Diktame auf mehreren Macs nutzen?', a11: 'Die Lizenz gilt für einen aktiven Mac. Du kannst sie übertragen, indem du sie auf dem vorherigen Mac deaktivierst.', q12: 'Gibt es eine Rückerstattungsrichtlinie?', a12: 'Nein. Da es eine lebenslange Lizenz ist, sind alle Verkäufe endgültig. Deshalb bieten wir Diktame Free ohne Zeitlimit an.' },
-  footer: { privacy: 'Datenschutz', terms: 'AGB', contact: 'Kontakt', madeIn: 'Made in Madrid.', tagline: 'Deine Stimme verlässt nie deinen Mac.' },
+  footer: { privacy: 'Datenschutz', terms: 'AGB', contact: 'Kontakt', recoverLicense: 'Lizenz wiederherstellen', madeIn: 'Made in Madrid.', tagline: 'Deine Stimme verlässt nie deinen Mac.' },
   success: {
     loadingTitle: 'Lizenz wird vorbereitet...',
     loadingSub: 'Das kann ein paar Sekunden dauern.',
@@ -616,6 +666,22 @@ const deTranslations: typeof es = {
     alertCheckoutError: 'Checkout konnte nicht gestartet werden. Bitte erneut versuchen.',
     alertConnectionError: 'Verbindungsfehler. Bitte erneut versuchen.',
   },
+  recover: {
+    metaTitle: 'Lizenz wiederherstellen — Diktame',
+    metaDescription:
+      'Gib die E-Mail deines Kaufs ein, um deinen Diktame-Pro-Lizenzschlüssel erneut zu erhalten.',
+    title: 'Lizenzschlüssel wiederherstellen',
+    description:
+      'Verwende dieselbe E-Mail wie beim Kauf von Diktame Pro. Wenn eine Lizenz existiert, senden wir dir den Schlüssel.',
+    placeholder: 'du@email.de',
+    submit: 'Senden',
+    submitting: 'Wird gesendet…',
+    successMessage:
+      'Wenn eine Lizenz mit dieser Adresse verknüpft ist, haben wir dir eine E-Mail geschickt. Prüfe Posteingang und Spam.',
+    invalidEmail: 'Bitte eine gültige E-Mail-Adresse eingeben.',
+    networkError: 'Verbindungsfehler. Bitte erneut versuchen.',
+    backToDiktame: 'Zurück zu Diktame',
+  },
 };
 
 // ============================================
@@ -634,7 +700,7 @@ const itTranslations: typeof es = {
   useCases: { label: 'Casi d\'uso', title1: 'Per chi vive', title2: 'scrivendo.', subtitle: 'Se il tuo lavoro implica scrivere, Diktame ti fa risparmiare ore ogni settimana.', professionals: 'Professionisti', professionalsDesc: 'Detta email, report e presentazioni 3x più veloce della digitazione.', professionalsKw: 'Email · Report · Documenti', developers: 'Sviluppatori', developersDesc: 'Detta commenti al codice, documentazione tecnica, messaggi di commit.', developersKw: 'Documentazione · Commit · PR', writers: 'Scrittori e giornalisti', writersDesc: 'Cattura idee al volo, trascrivi interviste, detta bozze.', writersKw: 'Bozze · Interviste · Idee', students: 'Studenti', studentsDesc: 'Prendi appunti dettando, trascrivi lezioni, scrivi tesi parlando.', studentsKw: 'Appunti · Tesi · Lezioni', multilingual: 'Team multilingue', multilingualDesc: 'Parla nella tua lingua e incolla il testo tradotto automaticamente.', multilingualKw: 'Traduzione · Team · Internazionale', health: 'Professionisti sanitari', healthDesc: 'Detta note cliniche, referti e ricette con vocabolario medico personalizzato. 100% offline.', healthKw: 'Note cliniche · Referti · GDPR' },
   pricing: { label: 'Prezzi', title1: 'Un prezzo.', title2: 'Per sempre.', subtitle: 'Senza abbonamenti, senza trucchi. Paga una volta, usa per sempre.', free: 'Free', freeDesc: 'Per provare Diktame senza impegno.', freeCta: 'Scarica gratis', pro: 'Pro', proDesc: 'Senza limiti. Senza abbonamento. Per sempre.', proCta: 'Acquista Diktame Pro', popular: 'Più popolare', perForever: 'per sempre', oneTime: 'pagamento unico', guarantee: 'Pagamento sicuro con Stripe · Prova gratis prima di acquistare', feat3min: '3 minuti di dettatura al giorno', featBaseModel: 'Modello Whisper base', feat1Lang: '1 lingua selezionata', featAutoPaste: 'Incolla automatico', featHistory5: 'Cronologia di 5 trascrizioni', featUnlimited: 'Dettatura illimitata', featAdvModels: 'Modelli avanzati (small, medium, large)', featMultiLang: 'Multi-lingua con rilevamento automatico', featHistory100: 'Cronologia estesa (100 trascrizioni)', featFiller: 'Filtro intelligente intercalari', featVocab: 'Vocabolario personalizzato', featTranslation: 'Traduzione in tempo reale', featUpdates: 'Tutti gli aggiornamenti futuri', featOneTime: 'Pagamento unico — senza abbonamento', featUnlimitedNo: 'Dettatura illimitata', featAdvModelsNo: 'Modelli avanzati', featAutoLangNo: 'Rilevamento automatico lingua', featFillerNo: 'Filtro intercalari', featVocabNo: 'Vocabolario personalizzato' },
   faq: { label: 'Domande frequenti', title1: 'Tutto quello che devi', title2: 'sapere.', contact: 'Hai un\'altra domanda?', contactLink: 'Scrivici', q1: 'Diktame funziona senza internet?', a1: 'Sì, al 100%. Diktame esegue Whisper AI direttamente sul Neural Engine del tuo Mac.', q2: 'È compatibile con il mio Mac?', a2: 'Diktame funziona su qualsiasi Mac con Apple Silicon (M1, M2, M3, M4) e macOS 14 Sonoma o superiore.', q3: 'I miei dati vocali vengono inviati a qualche server?', a3: 'No. Zero. Niente. L\'audio viene elaborato localmente e scartato subito dopo la trascrizione.', q4: 'Devo creare un account?', a4: 'No. Scarica l\'app, aprila e funziona. Senza registrazione.', q5: 'Quanto costa Diktame?', a5: 'Diktame Free è gratis per sempre con 3 minuti al giorno. Diktame Pro costa 14,99€ in un unico pagamento — per sempre.', q6: 'In quali lingue funziona?', a6: 'Italiano, inglese, francese, tedesco, spagnolo, portoghese, arabo, cinese, giapponese e coreano.', q7: 'Che differenza c\'è tra i modelli base, small e large?', a7: 'Il modello base (~150 MB) è veloce e preciso. Small (~500 MB) migliora la precisione. Large-v3 turbo (~3 GB) offre la massima precisione.', q8: 'Funziona in qualsiasi app?', a8: 'Sì. Diktame incolla automaticamente il testo dove si trova il cursore.', q9: 'Come funziona la traduzione in tempo reale?', a9: 'In Diktame Pro selezioni una lingua di output diversa. Ad esempio, parli italiano e il testo viene incollato in inglese.', q10: 'Cos\'è il vocabolario personalizzato?', a10: 'Puoi aggiungere parole che Whisper deve riconoscere correttamente: nomi aziendali, marchi, termini tecnici.', q11: 'Posso usare Diktame su più Mac?', a11: 'La licenza è per un Mac attivo alla volta. Puoi trasferirla disattivandola sul Mac precedente.', q12: 'C\'è una politica di rimborso?', a12: 'No. Essendo una licenza a vita, tutte le vendite sono definitive. Per questo offriamo Diktame Free senza limiti di tempo.' },
-  footer: { privacy: 'Privacy', terms: 'Termini', contact: 'Contatto', madeIn: 'Fatto a Madrid.', tagline: 'La tua voce non lascia mai il tuo Mac.' },
+  footer: { privacy: 'Privacy', terms: 'Termini', contact: 'Contatto', recoverLicense: 'Recupera licenza', madeIn: 'Fatto a Madrid.', tagline: 'La tua voce non lascia mai il tuo Mac.' },
   success: {
     loadingTitle: 'Preparazione della licenza...',
     loadingSub: 'Potrebbe richiedere alcuni secondi.',
@@ -660,6 +726,22 @@ const itTranslations: typeof es = {
     alertCheckoutError: 'Impossibile avviare il pagamento. Riprova.',
     alertConnectionError: 'Errore di connessione. Riprova.',
   },
+  recover: {
+    metaTitle: 'Recupera licenza — Diktame',
+    metaDescription:
+      'Inserisci l’email usata per l’acquisto per ricevere di nuovo la chiave Diktame Pro.',
+    title: 'Recupera la chiave',
+    description:
+      'Usa la stessa email del tuo acquisto di Diktame Pro. Se esiste una licenza, ti invieremo la chiave.',
+    placeholder: 'tu@email.com',
+    submit: 'Invia',
+    submitting: 'Invio in corso…',
+    successMessage:
+      'Se esiste una licenza associata a questo indirizzo, abbiamo inviato le istruzioni. Controlla la posta (e lo spam).',
+    invalidEmail: 'Inserisci un indirizzo email valido.',
+    networkError: 'Errore di connessione. Riprova.',
+    backToDiktame: 'Torna a Diktame',
+  },
 };
 
 // ============================================
@@ -678,7 +760,7 @@ const ptTranslations: typeof es = {
   useCases: { label: 'Casos de uso', title1: 'Para quem vive', title2: 'escrevendo.', subtitle: 'Se seu trabalho envolve escrever, Diktame economiza horas toda semana.', professionals: 'Profissionais', professionalsDesc: 'Dite emails, relatórios e apresentações 3x mais rápido que digitando.', professionalsKw: 'Emails · Relatórios · Documentos', developers: 'Desenvolvedores', developersDesc: 'Dite comentários de código, documentação técnica, mensagens de commit.', developersKw: 'Documentação · Commits · PRs', writers: 'Escritores e jornalistas', writersDesc: 'Capture ideias rapidamente, transcreva entrevistas, dite rascunhos.', writersKw: 'Rascunhos · Entrevistas · Ideias', students: 'Estudantes', studentsDesc: 'Faça anotações ditando, transcreva aulas, escreva trabalhos falando.', studentsKw: 'Anotações · Trabalhos · Aulas', multilingual: 'Equipes multilíngues', multilingualDesc: 'Fale no seu idioma e cole o texto traduzido automaticamente.', multilingualKw: 'Tradução · Equipes · Internacional', health: 'Profissionais de saúde', healthDesc: 'Dite notas clínicas, laudos e receitas com vocabulário médico personalizado. 100% offline.', healthKw: 'Notas clínicas · Laudos · LGPD' },
   pricing: { label: 'Preços', title1: 'Um preço.', title2: 'Para sempre.', subtitle: 'Sem assinaturas, sem truques. Pague uma vez, use para sempre.', free: 'Free', freeDesc: 'Para experimentar Diktame sem compromisso.', freeCta: 'Baixar grátis', pro: 'Pro', proDesc: 'Sem limites. Sem assinatura. Para sempre.', proCta: 'Comprar Diktame Pro', popular: 'Mais popular', perForever: 'para sempre', oneTime: 'pagamento único', guarantee: 'Pagamento seguro com Stripe · Experimente grátis antes de comprar', feat3min: '3 minutos de ditado por dia', featBaseModel: 'Modelo Whisper base', feat1Lang: '1 idioma selecionado', featAutoPaste: 'Cola automático', featHistory5: 'Histórico de 5 transcrições', featUnlimited: 'Ditado ilimitado', featAdvModels: 'Modelos avançados (small, medium, large)', featMultiLang: 'Multi-idioma com detecção automática', featHistory100: 'Histórico estendido (100 transcrições)', featFiller: 'Filtro inteligente de preenchimento', featVocab: 'Vocabulário personalizado', featTranslation: 'Tradução em tempo real', featUpdates: 'Todas as atualizações futuras', featOneTime: 'Pagamento único — sem assinatura', featUnlimitedNo: 'Ditado ilimitado', featAdvModelsNo: 'Modelos avançados', featAutoLangNo: 'Detecção automática de idioma', featFillerNo: 'Filtro de preenchimento', featVocabNo: 'Vocabulário personalizado' },
   faq: { label: 'Perguntas frequentes', title1: 'Tudo o que você precisa', title2: 'saber.', contact: 'Tem outra pergunta?', contactLink: 'Escreva-nos', q1: 'Diktame funciona sem internet?', a1: 'Sim, 100%. Diktame executa Whisper AI diretamente no Neural Engine do seu Mac.', q2: 'É compatível com meu Mac?', a2: 'Diktame funciona em qualquer Mac com Apple Silicon (M1, M2, M3, M4) e macOS 14 Sonoma ou superior.', q3: 'Meus dados de voz são enviados para algum servidor?', a3: 'Não. Zero. Nada. O áudio é processado localmente e descartado imediatamente após a transcrição.', q4: 'Preciso criar uma conta?', a4: 'Não. Baixe o app, abra e funciona. Sem registro.', q5: 'Quanto custa o Diktame?', a5: 'Diktame Free é grátis para sempre com 3 minutos por dia. Diktame Pro custa 14,99€ em pagamento único — para sempre.', q6: 'Em quais idiomas funciona?', a6: 'Português, inglês, francês, alemão, italiano, espanhol, árabe, chinês, japonês e coreano.', q7: 'Qual a diferença entre os modelos base, small e large?', a7: 'O modelo base (~150 MB) é rápido e preciso. Small (~500 MB) melhora a precisão. Large-v3 turbo (~3 GB) oferece precisão máxima.', q8: 'Funciona em qualquer app?', a8: 'Sim. Diktame cola automaticamente o texto onde está o cursor.', q9: 'Como funciona a tradução em tempo real?', a9: 'No Diktame Pro, selecione um idioma de saída diferente. Por exemplo, fale português e o texto é colado em inglês.', q10: 'O que é vocabulário personalizado?', a10: 'Você pode adicionar palavras que o Whisper deve reconhecer corretamente: nomes de empresas, marcas, termos técnicos.', q11: 'Posso usar Diktame em vários Macs?', a11: 'A licença é para um Mac ativo por vez. Você pode transferi-la desativando no Mac anterior.', q12: 'Existe política de reembolso?', a12: 'Não. Por ser uma licença vitalícia, todas as vendas são definitivas. Por isso oferecemos Diktame Free sem limite de tempo.' },
-  footer: { privacy: 'Privacidade', terms: 'Termos', contact: 'Contato', madeIn: 'Feito em Madrid.', tagline: 'Sua voz nunca sai do seu Mac.' },
+  footer: { privacy: 'Privacidade', terms: 'Termos', contact: 'Contato', recoverLicense: 'Recuperar licença', madeIn: 'Feito em Madrid.', tagline: 'Sua voz nunca sai do seu Mac.' },
   success: {
     loadingTitle: 'Preparando sua licença...',
     loadingSub: 'Isso pode levar alguns segundos.',
@@ -704,6 +786,22 @@ const ptTranslations: typeof es = {
     alertCheckoutError: 'Não foi possível iniciar o pagamento. Tente novamente.',
     alertConnectionError: 'Erro de conexão. Tente novamente.',
   },
+  recover: {
+    metaTitle: 'Recuperar licença — Diktame',
+    metaDescription:
+      'Digite o email da compra para receber novamente sua chave do Diktame Pro.',
+    title: 'Recuperar sua chave',
+    description:
+      'Use o mesmo email da compra do Diktame Pro. Se houver licença, enviaremos a chave.',
+    placeholder: 'voce@email.com',
+    submit: 'Enviar',
+    submitting: 'Enviando…',
+    successMessage:
+      'Se existir licença para este endereço, enviamos as instruções. Verifique a caixa de entrada (e o spam).',
+    invalidEmail: 'Digite um endereço de email válido.',
+    networkError: 'Erro de conexão. Tente novamente.',
+    backToDiktame: 'Voltar ao Diktame',
+  },
 };
 
 // ============================================
@@ -722,7 +820,7 @@ const ruTranslations: typeof es = {
   useCases: { label: 'Применение', title1: 'Для тех, кто', title2: 'пишет.', subtitle: 'Если ваша работа связана с письмом, Diktame экономит часы каждую неделю.', professionals: 'Профессионалы', professionalsDesc: 'Диктуйте письма, отчёты и презентации в 3 раза быстрее набора.', professionalsKw: 'Письма · Отчёты · Документы', developers: 'Разработчики', developersDesc: 'Диктуйте комментарии к коду, техническую документацию, сообщения коммитов.', developersKw: 'Документация · Коммиты · PR', writers: 'Писатели и журналисты', writersDesc: 'Ловите идеи на лету, транскрибируйте интервью, диктуйте черновики.', writersKw: 'Черновики · Интервью · Идеи', students: 'Студенты', studentsDesc: 'Делайте конспекты голосом, транскрибируйте лекции, пишите работы диктовкой.', studentsKw: 'Конспекты · Работы · Лекции', multilingual: 'Мультиязычные команды', multilingualDesc: 'Говорите на своём языке и вставляйте автоматически переведённый текст.', multilingualKw: 'Перевод · Команды · Международный', health: 'Медицинские специалисты', healthDesc: 'Диктуйте клинические записи, отчёты и рецепты с медицинским словарём. 100% офлайн.', healthKw: 'Клинические записи · Отчёты · GDPR' },
   pricing: { label: 'Цены', title1: 'Одна цена.', title2: 'Навсегда.', subtitle: 'Без подписок, без уловок. Заплатите один раз, пользуйтесь навсегда.', free: 'Free', freeDesc: 'Попробуйте Diktame без обязательств.', freeCta: 'Скачать бесплатно', pro: 'Pro', proDesc: 'Без ограничений. Без подписки. Навсегда.', proCta: 'Купить Diktame Pro', popular: 'Самый популярный', perForever: 'навсегда', oneTime: 'разовый платёж', guarantee: 'Безопасная оплата через Stripe · Попробуйте бесплатно перед покупкой', feat3min: '3 минуты диктовки в день', featBaseModel: 'Модель Whisper base', feat1Lang: '1 выбранный язык', featAutoPaste: 'Автовставка', featHistory5: 'История 5 транскрипций', featUnlimited: 'Безлимитная диктовка', featAdvModels: 'Продвинутые модели (small, medium, large)', featMultiLang: 'Мультиязычность с автоопределением', featHistory100: 'Расширенная история (100 транскрипций)', featFiller: 'Умный фильтр слов-паразитов', featVocab: 'Пользовательский словарь', featTranslation: 'Живой перевод', featUpdates: 'Все будущие обновления', featOneTime: 'Разовый платёж — без подписки', featUnlimitedNo: 'Безлимитная диктовка', featAdvModelsNo: 'Продвинутые модели', featAutoLangNo: 'Автоопределение языка', featFillerNo: 'Фильтр слов-паразитов', featVocabNo: 'Пользовательский словарь' },
   faq: { label: 'Частые вопросы', title1: 'Всё что нужно', title2: 'знать.', contact: 'Есть другой вопрос?', contactLink: 'Напишите нам', q1: 'Diktame работает без интернета?', a1: 'Да, на 100%. Diktame запускает Whisper AI прямо на Neural Engine вашего Mac.', q2: 'Совместим ли он с моим Mac?', a2: 'Diktame работает на любом Mac с Apple Silicon (M1, M2, M3, M4) и macOS 14 Sonoma или новее.', q3: 'Мои голосовые данные отправляются на сервер?', a3: 'Нет. Ноль. Ничего. Аудио обрабатывается локально и удаляется сразу после транскрипции.', q4: 'Нужно ли создавать аккаунт?', a4: 'Нет. Скачайте приложение, откройте его и оно работает. Без регистрации.', q5: 'Сколько стоит Diktame?', a5: 'Diktame Free бесплатен навсегда с 3 минутами в день. Diktame Pro стоит 14,99€ разовым платежом — навсегда.', q6: 'Какие языки поддерживаются?', a6: 'Русский, английский, французский, немецкий, итальянский, португальский, арабский, китайский, японский и корейский.', q7: 'В чём разница между моделями base, small и large?', a7: 'Модель base (~150 МБ) быстрая и точная. Small (~500 МБ) повышает точность. Large-v3 turbo (~3 ГБ) предлагает максимальную точность.', q8: 'Работает ли в любом приложении?', a8: 'Да. Diktame автоматически вставляет текст туда, где находится курсор.', q9: 'Как работает живой перевод?', a9: 'В Diktame Pro выберите другой язык вывода. Например, говорите по-русски, а текст вставляется на английском.', q10: 'Что такое пользовательский словарь?', a10: 'Вы можете добавить слова, которые Whisper должен распознавать правильно: названия компаний, бренды, технические термины.', q11: 'Могу ли я использовать Diktame на нескольких Mac?', a11: 'Лицензия для одного активного Mac. Вы можете перенести её, деактивировав на предыдущем Mac.', q12: 'Есть ли политика возврата?', a12: 'Нет. Поскольку это пожизненная лицензия, все продажи окончательны. Поэтому мы предлагаем Diktame Free без ограничений по времени.' },
-  footer: { privacy: 'Конфиденциальность', terms: 'Условия', contact: 'Контакт', madeIn: 'Сделано в Мадриде.', tagline: 'Ваш голос никогда не покидает ваш Mac.' },
+  footer: { privacy: 'Конфиденциальность', terms: 'Условия', contact: 'Контакт', recoverLicense: 'Восстановить лицензию', madeIn: 'Сделано в Мадриде.', tagline: 'Ваш голос никогда не покидает ваш Mac.' },
   success: {
     loadingTitle: 'Подготовка лицензии...',
     loadingSub: 'Это может занять несколько секунд.',
@@ -747,6 +845,22 @@ const ruTranslations: typeof es = {
       'Сохраните ключ в надёжном месте. Он понадобится при переустановке приложения.',
     alertCheckoutError: 'Не удалось начать оплату. Попробуйте снова.',
     alertConnectionError: 'Ошибка соединения. Попробуйте снова.',
+  },
+  recover: {
+    metaTitle: 'Восстановить лицензию — Diktame',
+    metaDescription:
+      'Введите email покупки, чтобы снова получить ключ Diktame Pro.',
+    title: 'Восстановить ключ',
+    description:
+      'Укажите тот же email, что при покупке Diktame Pro. Если лицензия есть, мы отправим ключ на почту.',
+    placeholder: 'you@email.com',
+    submit: 'Отправить',
+    submitting: 'Отправка…',
+    successMessage:
+      'Если лицензия привязана к этому адресу, мы отправили инструкции. Проверьте входящие (и спам).',
+    invalidEmail: 'Введите корректный адрес email.',
+    networkError: 'Ошибка соединения. Попробуйте снова.',
+    backToDiktame: 'Назад к Diktame',
   },
 };
 

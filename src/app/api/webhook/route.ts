@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { supabase } from '@/lib/supabase';
 import { generateLicenseKey } from '@/lib/license';
+import { normalizeLicenseEmail, sendLicenseEmail } from '@/lib/license-email';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
@@ -39,6 +40,8 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'No email' }, { status: 400 });
     }
 
+    const normalizedEmail = normalizeLicenseEmail(email);
+
     // Generar clave de licencia única
     let licenseKey = generateLicenseKey();
 
@@ -59,7 +62,7 @@ export async function POST(req: NextRequest) {
     // Guardar licencia en Supabase
     const { error: dbError } = await supabase.from('licenses').insert({
       license_key: licenseKey,
-      email: email,
+      email: normalizedEmail,
       stripe_payment_id: paymentId,
       stripe_customer_id: customerId,
       status: 'active',
@@ -70,10 +73,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Error DB' }, { status: 500 });
     }
 
-    console.log(`[Webhook] Licencia generada: ${licenseKey} para ${email}`);
+    console.log(`[Webhook] Licencia guardada para ${normalizedEmail}`);
 
-    // Stripe envía automáticamente un receipt al email del comprador
-    // La clave de licencia se mostrará en la página de success
+    const sent = await sendLicenseEmail({
+      to: normalizedEmail,
+      licenseKey,
+      buyerEmail: normalizedEmail,
+      isRecovery: false,
+    });
+    if (!sent.ok) {
+      console.error('[Webhook] No se pudo enviar el email de licencia:', sent.error);
+    }
   }
 
   return NextResponse.json({ received: true });
