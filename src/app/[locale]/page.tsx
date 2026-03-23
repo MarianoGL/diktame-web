@@ -44,7 +44,6 @@ export default async function Home({
         alerts={{
           checkoutError: t.success.alertCheckoutError,
           connectionError: t.success.alertConnectionError,
-          downloadSoon: t.success.downloadComingSoon,
         }}
       />
       <FAQ t={t.faq} />

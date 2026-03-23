@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { type Locale, type Translations } from '@/lib/i18n';
+import { DIKTAME_DMG_DOWNLOAD_URL } from '@/lib/diktameDownload';
 
 interface PricingProps {
   t: Translations['pricing'];
@@ -9,7 +10,6 @@ interface PricingProps {
   alerts: {
     checkoutError: string;
     connectionError: string;
-    downloadSoon: string;
   };
 }
 
@@ -169,19 +169,25 @@ export default function Pricing({ t, locale, alerts }: PricingProps) {
                 ))}
               </ul>
 
-              <button
-                type="button"
-                className={`relative z-10 w-full py-3.5 rounded-full font-medium text-sm transition-all duration-300 ${plan.ctaStyle}`}
-                onClick={() => {
-                  if (plan.highlighted) {
+              {plan.highlighted ? (
+                <button
+                  type="button"
+                  className={`relative z-10 w-full py-3.5 rounded-full font-medium text-sm transition-all duration-300 ${plan.ctaStyle}`}
+                  onClick={() => {
                     void handleCheckout();
-                  } else {
-                    alert(alerts.downloadSoon);
-                  }
-                }}
-              >
-                {plan.cta}
-              </button>
+                  }}
+                >
+                  {plan.cta}
+                </button>
+              ) : (
+                <a
+                  href={DIKTAME_DMG_DOWNLOAD_URL}
+                  rel="noopener noreferrer"
+                  className={`relative z-10 flex w-full items-center justify-center py-3.5 rounded-full font-medium text-sm transition-all duration-300 ${plan.ctaStyle}`}
+                >
+                  {plan.cta}
+                </a>
+              )}
             </div>
           ))}
         </div>

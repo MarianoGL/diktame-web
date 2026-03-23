@@ -265,7 +265,6 @@ const es = {
       'Guarda esta clave en un sitio seguro. La necesitarás si reinstales la app.',
     alertCheckoutError: 'Error al iniciar el pago. Inténtalo de nuevo.',
     alertConnectionError: 'Error de conexión. Inténtalo de nuevo.',
-    downloadComingSoon: 'Descarga del .dmg — próximamente',
   },
 };
 
@@ -521,7 +520,6 @@ const enTranslations: typeof es = {
       'Save this key somewhere safe. You will need it if you reinstall the app.',
     alertCheckoutError: 'Could not start checkout. Please try again.',
     alertConnectionError: 'Connection error. Please try again.',
-    downloadComingSoon: '.dmg download — coming soon',
   },
 };
 
@@ -567,7 +565,6 @@ const frTranslations: typeof es = {
       'Conservez cette clé en lieu sûr. Vous en aurez besoin si vous réinstallez l’app.',
     alertCheckoutError: 'Impossible de démarrer le paiement. Réessayez.',
     alertConnectionError: 'Erreur de connexion. Réessayez.',
-    downloadComingSoon: 'Téléchargement du .dmg — bientôt',
   },
 };
 
@@ -610,7 +607,6 @@ const deTranslations: typeof es = {
       'Bewahre diesen Schlüssel sicher auf. Du brauchst ihn bei einer Neuinstallation.',
     alertCheckoutError: 'Checkout konnte nicht gestartet werden. Bitte erneut versuchen.',
     alertConnectionError: 'Verbindungsfehler. Bitte erneut versuchen.',
-    downloadComingSoon: '.dmg-Download — demnächst',
   },
 };
 
@@ -653,7 +649,6 @@ const itTranslations: typeof es = {
       'Conserva questa chiave in un posto sicuro. Ti servirà se reinstalli l’app.',
     alertCheckoutError: 'Impossibile avviare il pagamento. Riprova.',
     alertConnectionError: 'Errore di connessione. Riprova.',
-    downloadComingSoon: 'Download .dmg — in arrivo',
   },
 };
 
@@ -696,7 +691,6 @@ const ptTranslations: typeof es = {
       'Guarde esta chave em um lugar seguro. Você precisará dela se reinstalar o app.',
     alertCheckoutError: 'Não foi possível iniciar o pagamento. Tente novamente.',
     alertConnectionError: 'Erro de conexão. Tente novamente.',
-    downloadComingSoon: 'Download do .dmg — em breve',
   },
 };
 
@@ -739,7 +733,6 @@ const ruTranslations: typeof es = {
       'Сохраните ключ в надёжном месте. Он понадобится при переустановке приложения.',
     alertCheckoutError: 'Не удалось начать оплату. Попробуйте снова.',
     alertConnectionError: 'Ошибка соединения. Попробуйте снова.',
-    downloadComingSoon: 'Скачивание .dmg — скоро',
   },
 };
 

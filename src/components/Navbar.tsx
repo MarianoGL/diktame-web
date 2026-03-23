@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { type Locale, type Translations } from '@/lib/i18n';
 import { localizedPath } from '@/lib/i18n';
+import { DIKTAME_DMG_DOWNLOAD_URL } from '@/lib/diktameDownload';
 import LanguageSelector from './LanguageSelector';
 
 interface NavbarProps {
@@ -71,7 +72,8 @@ export default function Navbar({ t, locale }: NavbarProps) {
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <LanguageSelector locale={locale} />
           <a
-            href={`${base}#precios`}
+            href={DIKTAME_DMG_DOWNLOAD_URL}
+            rel="noopener noreferrer"
             className="px-5 py-2 rounded-full text-sm font-medium bg-amber-warm/10 text-amber-warm border border-amber-warm/20 hover:bg-amber-warm/20 hover:border-amber-warm/40 transition-all duration-300"
           >
             {t.download}
