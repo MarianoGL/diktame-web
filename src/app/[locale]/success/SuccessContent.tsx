@@ -4,6 +4,7 @@ import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { localizedPath, type Locale } from '@/lib/i18n';
 import type { Translations } from '@/lib/i18n';
+import { DIKTAME_DMG_DOWNLOAD_URL } from '@/lib/diktameDownload';
 
 type SuccessT = Translations['success'];
 
@@ -123,6 +124,15 @@ function SuccessInner({ t, locale }: { t: SuccessT; locale: Locale }) {
                 </p>
               )}
             </div>
+
+            <a
+              href={DIKTAME_DMG_DOWNLOAD_URL}
+              rel="noopener noreferrer"
+              className="inline-flex flex-col items-center rounded-full px-6 py-3 text-sm font-medium bg-amber-warm/10 text-amber-warm border border-amber-warm/20 hover:bg-amber-warm/20 transition-all duration-300 mb-6"
+            >
+              <span>{t.downloadButton}</span>
+              <span className="text-xs text-neutral-500 mt-1">{t.downloadSubtext}</span>
+            </a>
 
             <div className="text-left rounded-xl border border-white/5 bg-surface-800/20 p-5 mb-6">
               <p className="text-sm font-medium text-white mb-3">{t.howToActivate}</p>
