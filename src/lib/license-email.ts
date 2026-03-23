@@ -1,6 +1,4 @@
-import { Resend } from 'resend';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { TransactionalEmailsClient } from '@getbrevo/brevo/transactionalEmails';
 
 export function normalizeLicenseEmail(email: string): string {
   return email.trim().toLowerCase();
@@ -61,14 +59,30 @@ function escapeHtml(s: string): string {
     .replace(/"/g, '&quot;');
 }
 
+function getTransactionalEmailsApi(): TransactionalEmailsClient | null {
+  const apiKey = process.env.BREVO_API_KEY;
+  if (!apiKey) {
+    return null;
+  }
+  return new TransactionalEmailsClient({ apiKey });
+}
+
 /**
- * Envía la clave por correo. No registrar la clave en logs en caso de error.
+ * Envía la clave por correo vía TransactionalEmailsClient (`sendTransacEmail`).
+ * No registrar la clave en logs en caso de error.
  */
 export async function sendLicenseEmail(params: SendLicenseEmailParams): Promise<{ ok: true } | { ok: false; error: string }> {
-  const from = process.env.RESEND_FROM;
-  if (!from) {
-    console.error('[license-email] Falta RESEND_FROM');
+  const fromEmail = process.env.BREVO_FROM_EMAIL?.trim();
+  const fromName = process.env.BREVO_FROM_NAME?.trim();
+  if (!fromEmail || !fromName) {
+    console.error('[license-email] Faltan BREVO_FROM_EMAIL o BREVO_FROM_NAME');
     return { ok: false, error: 'missing_from' };
+  }
+
+  const transactionalEmailsApi = getTransactionalEmailsApi();
+  if (!transactionalEmailsApi) {
+    console.error('[license-email] Falta BREVO_API_KEY');
+    return { ok: false, error: 'missing_api_key' };
   }
 
   const subject = params.isRecovery
@@ -76,23 +90,18 @@ export async function sendLicenseEmail(params: SendLicenseEmailParams): Promise<
     : 'Tu licencia de Diktame';
 
   try {
-    const { error } = await resend.emails.send({
-      from,
-      to: params.to,
+    await transactionalEmailsApi.sendTransacEmail({
+      sender: { email: fromEmail, name: fromName },
+      to: [{ email: params.to }],
       subject,
-      html: buildEmailHtml(params.licenseKey, params.buyerEmail),
-      text: buildEmailText(params.licenseKey, params.buyerEmail),
+      htmlContent: buildEmailHtml(params.licenseKey, params.buyerEmail),
+      textContent: buildEmailText(params.licenseKey, params.buyerEmail),
     });
 
-    if (error) {
-      console.error('[license-email] Resend error:', error.message);
-      return { ok: false, error: error.message };
-    }
-
     return { ok: true };
-  } catch (e) {
+  } catch (e: unknown) {
     const msg = e instanceof Error ? e.message : 'unknown';
-    console.error('[license-email] Excepción:', msg);
+    console.error('[license-email] Brevo error:', msg);
     return { ok: false, error: msg };
   }
 }

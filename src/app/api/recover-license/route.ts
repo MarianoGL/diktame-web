@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
   });
 
   if (!sent.ok) {
-    console.error('[recover-license] Fallo Resend:', sent.error);
+    console.error('[recover-license] Fallo Brevo:', sent.error);
     return NextResponse.json(GENERIC_OK);
   }
 
